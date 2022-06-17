@@ -1,0 +1,34 @@
+.main-topbar {
+  height: var(--main-topbar-height);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid lightslategray;
+}
+
+.main-topbar--center {
+  width: 50%;
+  text-align: center;
+}
+
+.main-topbar--title {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.main-topbar--left,
+.main-topbar--right {
+  width: 25%;
+}
+
+.main-topbar--left {
+  text-align: left;
+}
+
+.main-topbar--right {
+  text-align: right;
+}
