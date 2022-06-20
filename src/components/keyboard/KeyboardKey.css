@@ -1,0 +1,34 @@
+.keyboard-key {
+  flex-grow: 1;
+  line-height: 2rem;
+  font-size: medium;
+
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  padding: 6px 6px;
+}
+
+.keyboard-key:hover {
+  opacity: 0.5;
+}
+
+.keyboard-key:active {
+  opacity: 0.9;
+}
+
+.keyboard-key:focus {
+  box-shadow: 0 0 1px 3px var(--color-key-normal);
+}
+
+.key-normal {
+  background-color: var(--color-key-normal);
+}
+.key-correct {
+  background-color: var(--color-correct);
+}
+.key-present {
+  background-color: var(--color-present);
+}
+.key-abscent {
+  background-color: var(--color-abscent);
+}

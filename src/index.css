@@ -34,4 +34,12 @@ body {
   --app-max-width: 650px;
 
   --color-light-grey: #fefefe;
+
+  --color-key-normal: #d3d6da;
+  --color-key-normal-opacity: #d3d6daee;
+
+  --color-correct: #6aaa64;
+  --color-present: #c9b458;
+  --color-abscent: #787c7e;
+  --color-error: #bb3429;
 }
