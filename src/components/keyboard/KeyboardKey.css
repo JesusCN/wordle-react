@@ -5,7 +5,8 @@
 
   border: 1px solid whitesmoke;
   border-radius: 5px;
-  padding: 6px 6px;
+  min-height: 50px;
+  min-width: 30px;
 }
 
 .keyboard-key:hover {
