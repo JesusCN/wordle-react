@@ -14,14 +14,22 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  height: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /* commons */
 
 .container {
-  padding: 8px;
+  padding: 0 8px;
   margin-left: auto;
   margin-right: auto;
   max-width: var(--app-max-width);
