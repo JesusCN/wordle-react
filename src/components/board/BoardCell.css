@@ -1,0 +1,39 @@
+.board-cell {
+  display: inline-flex;
+  text-transform: uppercase;
+
+  width: 3.5rem;
+  height: 3.5rem;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+  margin: 2px 2px;
+  border: 1px solid #000000FE;
+  white-space: pre-wrap;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.board-cell--normal {
+  background-color: white;
+}
+
+.board-cell--correct {
+  background-color: var(--color-correct);
+  color: white;
+  border: 1px solid var(--color-correct);
+}
+
+.board-cell--present {
+  background-color: var(--color-present);
+  color: white;
+  border: 1px solid var(--color-present);
+}
+
+.board-cell--abscent {
+  background-color: var(--color-abscent);
+  color: white;
+  border: 1px solid var(--color-present);
+}

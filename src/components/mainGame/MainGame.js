@@ -1,3 +1,6 @@
+import "./MainGame.css";
+
+import Board from "../board/Board";
 import Keyboard from "../keyboard/Keyboard";
 
 function MainGame() {
@@ -6,7 +9,18 @@ function MainGame() {
   const onDelete = (keyVal) => console.log("onDelete:" + keyVal);
 
   return (
-    <Keyboard onKey={onKey} onEnter={onEnter} onDelete={onDelete}></Keyboard>
+    <div className="main-game">
+      <div className="board-container">
+        <Board></Board>
+      </div>
+      <div className="keyboard-container">
+        <Keyboard
+          onKey={onKey}
+          onEnter={onEnter}
+          onDelete={onDelete}
+        ></Keyboard>
+      </div>
+    </div>
   );
 }
 
