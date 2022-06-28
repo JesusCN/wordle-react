@@ -1,3 +1,4 @@
+import "./BoardRow.css" 
 import Proptypes from "prop-types";
 import BoardCell from "./BoardCell";
 

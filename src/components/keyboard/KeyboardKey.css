@@ -1,12 +1,18 @@
 .keyboard-key {
   flex-grow: 1;
   line-height: 2rem;
-  font-size: medium;
+  font-size: 14px;
 
   border: 1px solid whitesmoke;
   border-radius: 5px;
-  min-height: 50px;
-  min-width: 30px;
+  height: 58px;
+  min-width: 32px;
+  width: auto;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .keyboard-key:hover {
@@ -32,4 +38,11 @@
 }
 .key-abscent {
   background-color: var(--color-abscent);
+}
+
+@media screen and (max-width: 325px) {
+  .keyboard-key {
+    min-width: 20px;
+    font-size: 12px;
+  }
 }
