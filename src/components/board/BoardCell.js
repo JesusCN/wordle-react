@@ -14,11 +14,17 @@ BoardCell.propTypes = {
 };
 
 function BoardCell({ letter, status = "normal" }) {
+  letter = letter.trim();
+
   if (!CELL_STATUS[status])
     console.warn("BoardCell: incorrect cell status:" + status);
 
   return (
-    <div className={"board-cell board-cell--" + status}>
+    <div
+      className={
+        "board-cell board-cell--" + status + (letter ? " grow-animation" : "")
+      }
+    >
       <span>{letter}</span>
     </div>
   );
