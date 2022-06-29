@@ -1,4 +1,4 @@
-import "./BoardRow.css" 
+import "./BoardRow.css";
 import Proptypes from "prop-types";
 import BoardCell from "./BoardCell";
 
@@ -12,9 +12,9 @@ function BoardRow({ word, maxLetters = 5 }) {
 
   return (
     <div className="board-row">
-      {lettersArr.map((letter) => (
+      {lettersArr.map((letter, i) => (
         <BoardCell
-          key={"boardCell_" + letter}
+          key={"boardCell_" + i}
           letter={letter}
           status="normal"
         ></BoardCell>
