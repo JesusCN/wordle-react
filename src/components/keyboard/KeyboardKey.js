@@ -27,10 +27,11 @@ function KeyboardKey({ value, onPress, label = "", status = "normal" }) {
 
   return (
     <button
+      tabIndex={-1}
       className={"keyboard-key " + statusClass}
       onClick={() => handleOnClick(value)}
     >
-      {label || value}
+      <span style={{ minWidth: "30px" }}> {label || value}</span>
     </button>
   );
 }
