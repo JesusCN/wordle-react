@@ -1,0 +1,1 @@
+- Handle enter with last letter for only add word (not letter selected)

@@ -17,6 +17,8 @@ KeyboardKey.propTypes = {
 
 function KeyboardKey({ value, onPress, label = "", status = "normal" }) {
   const handleOnClick = (val) => {
+    console.log(val);
+
     onPress && onPress(val);
   };
 
@@ -27,6 +29,7 @@ function KeyboardKey({ value, onPress, label = "", status = "normal" }) {
 
   return (
     <button
+      type="button"
       tabIndex={-1}
       className={"keyboard-key " + statusClass}
       onClick={() => handleOnClick(value)}

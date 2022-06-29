@@ -16,6 +16,7 @@
 
   user-select: none;
   cursor: pointer;
+  outline: none;
 }
 
 .keyboard-key:hover {
@@ -32,15 +33,23 @@
 
 .key-normal {
   background-color: var(--color-key-normal);
+  color: black;
+  transition: 500ms;
 }
 .key-correct {
   background-color: var(--color-correct);
+  color: white;
+  transition: 500ms;
 }
 .key-present {
   background-color: var(--color-present);
+  color: white;
+  transition: 500ms;
 }
 .key-abscent {
   background-color: var(--color-abscent);
+  color: white;
+  transition: 500ms;
 }
 
 @media screen and (max-width: 375px) {

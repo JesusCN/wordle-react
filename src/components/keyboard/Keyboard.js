@@ -1,7 +1,9 @@
-import "./Keyboard.css";
-import KeyboardKey from "../keyboard/KeyboardKey";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
+import KeyboardKey from "../keyboard/KeyboardKey";
+import "./Keyboard.css";
+
+import WordsUtils from "../../utils/WordsUtils";
 
 const KEYS_LINE_1 = "QWERTYUIOP".split("");
 const KEYS_LINE_2 = "ASDFGHJKLÑ".split("");
@@ -19,6 +21,8 @@ Keyboard.propTypes = {
   onKey: PropTypes.func,
   onEnter: PropTypes.func,
   onDelete: PropTypes.func,
+  usedWords: PropTypes.array,
+  correctWord: PropTypes.string,
 };
 
 function isEnterEvKey(key) {
@@ -33,7 +37,18 @@ function isValidLetterEvKey(key) {
   return /^[a-zñ]$/.test(key.toLowerCase());
 }
 
-function Keyboard({ onKey, onEnter, onDelete }) {
+function Keyboard({
+  onKey,
+  onEnter,
+  onDelete,
+  usedWords = [],
+  correctWord = "",
+}) {
+  const letterStatus = WordsUtils.GetStatusKeys(usedWords, correctWord);
+
+  /**
+   * Callback for keyPress
+   */
   const onKeyPress = (val) => {
     if (val === ENTER_KEY.value) onEnter && onEnter(val);
     else if (val === DEL_KEY.value) onDelete && onDelete(val);
@@ -58,6 +73,7 @@ function Keyboard({ onKey, onEnter, onDelete }) {
     };
   });
 
+
   return (
     <div className="keyboard">
       {KEY_LINES.map((line, lineIdx) => (
@@ -67,6 +83,7 @@ function Keyboard({ onKey, onEnter, onDelete }) {
               key={"line_" + lineIdx + "_key_" + keyIdx}
               value={key.value || key}
               label={key.label || key}
+              status={letterStatus[key.value || key]}
               onPress={() => onKeyPress(key.value || key)}
             ></KeyboardKey>
           ))}
