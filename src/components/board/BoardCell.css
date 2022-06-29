@@ -9,11 +9,13 @@
   justify-content: center;
 
   padding: 8px;
-  margin: 2px 2px;
-  border: 1px solid #000000fe;
+  margin: 4px 4px;
+  border: 2px solid #e2e8f0;
   white-space: pre-wrap;
   font-size: 2rem;
   font-weight: bold;
+
+  user-select: none;
 }
 
 .board-cell--normal {
@@ -38,10 +40,27 @@
   border: 1px solid var(--color-present);
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
   .board-cell {
     width: 3rem;
     height: 3rem;
     font-size: 1.75rem;
+  }
+}
+
+.grow-animation {
+  animation: grow 100ms linear 0s 1;
+  border-color: black;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  85% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
   }
 }

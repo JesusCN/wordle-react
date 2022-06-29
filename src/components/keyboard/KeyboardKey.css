@@ -13,6 +13,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  user-select: none;
+  cursor: pointer;
 }
 
 .keyboard-key:hover {
@@ -40,7 +43,7 @@
   background-color: var(--color-abscent);
 }
 
-@media screen and (max-width: 325px) {
+@media screen and (max-width: 375px) {
   .keyboard-key {
     min-width: 20px;
     font-size: 12px;

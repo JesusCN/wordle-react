@@ -40,8 +40,10 @@ body {
 /* constants */
 
 :root {
-  --main-topbar-height: 55px;
-  --app-max-width: 650px;
+  --main-topbar-height: 50px;
+  --app-max-width: 500px;
+
+  --small-display: 375px;
 
   --color-light-grey: #fefefe;
 

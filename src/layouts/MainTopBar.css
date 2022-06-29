@@ -15,7 +15,7 @@
 
 .main-topbar--title {
   text-transform: uppercase;
-  letter-spacing: 6px;
+  letter-spacing: 3px;
   font-size: 2rem;
   font-weight: bolder;
 }
@@ -31,4 +31,12 @@
 
 .main-topbar--right {
   text-align: right;
+}
+
+@media screen and (max-width: 375px) {
+  .main-topbar--title {
+    
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
 }
