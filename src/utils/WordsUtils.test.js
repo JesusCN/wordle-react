@@ -1,6 +1,6 @@
 import wordsUtils from "./wordsUtils";
 
-describe("word utils: getStatusKeys", () => {
+describe("word utils: GetStatusKeys", () => {
   it("should get letter in correct word as correct letters", () => {
     const correctWord = "adios";
     const words = [
@@ -57,5 +57,73 @@ describe("word utils: getStatusKeys", () => {
     expect(wordsUtils.GetStatusKeys(words, correctWord)).toMatchObject({
       A: wordsUtils.LETTER_STATUS.correct,
     });
+  });
+});
+
+describe("word utils: GetStatusWord", () => {
+  it("should get right status for correct word", () => {
+    const correctWord = "abbey";
+    const guessssWord = "abbey";
+    const statuses = wordsUtils.GetStatusWord(guessssWord, correctWord);
+    expect(statuses[0]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[1]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[2]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[3]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[4]).toBe(wordsUtils.LETTER_STATUS.correct);
+  });
+
+  it("should get right status for letters", () => {
+    const correctWord = "abbey";
+    const guessssWord = "abyss";
+    const statuses = wordsUtils.GetStatusWord(guessssWord, correctWord);
+    expect(statuses[0]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[1]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[2]).toBe(wordsUtils.LETTER_STATUS.present);
+    expect(statuses[3]).toBe(wordsUtils.LETTER_STATUS.abscent);
+    expect(statuses[4]).toBe(wordsUtils.LETTER_STATUS.abscent);
+  });
+
+  it("should get correct status for repeated letters x1", () => {
+    const correctWord = "abbey";
+    const guessssWord = "babel";
+    const statuses = wordsUtils.GetStatusWord(guessssWord, correctWord);
+    expect(statuses[0]).toBe(wordsUtils.LETTER_STATUS.present);
+    expect(statuses[1]).toBe(wordsUtils.LETTER_STATUS.present);
+    expect(statuses[2]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[3]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[4]).toBe(wordsUtils.LETTER_STATUS.abscent);
+  });
+
+  it("should get correct status for repeated letters x2", () => {
+    const correctWord = "abbey";
+    const guessssWord = "kebab";
+    const statuses = wordsUtils.GetStatusWord(guessssWord, correctWord);
+    expect(statuses[0]).toBe(wordsUtils.LETTER_STATUS.abscent);
+    expect(statuses[1]).toBe(wordsUtils.LETTER_STATUS.present);
+    expect(statuses[2]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[3]).toBe(wordsUtils.LETTER_STATUS.present);
+    expect(statuses[4]).toBe(wordsUtils.LETTER_STATUS.present);
+  });
+
+  it("if all repeated letters are wrong, only the first should be present and the others as abscent ", () => {
+    const correctWord = "abbey";
+    const guessssWord = "keeps";
+    const statuses = wordsUtils.GetStatusWord(guessssWord, correctWord);
+    expect(statuses[0]).toBe(wordsUtils.LETTER_STATUS.abscent);
+    expect(statuses[1]).toBe(wordsUtils.LETTER_STATUS.present);
+    expect(statuses[2]).toBe(wordsUtils.LETTER_STATUS.abscent);
+    expect(statuses[3]).toBe(wordsUtils.LETTER_STATUS.abscent);
+    expect(statuses[4]).toBe(wordsUtils.LETTER_STATUS.abscent);
+  });
+
+  it("should get right status for letters (case insensitive) ", () => {
+    const correctWord = "abBEY";
+    const guessssWord = "aBYSs";
+    const statuses = wordsUtils.GetStatusWord(guessssWord, correctWord);
+    expect(statuses[0]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[1]).toBe(wordsUtils.LETTER_STATUS.correct);
+    expect(statuses[2]).toBe(wordsUtils.LETTER_STATUS.present);
+    expect(statuses[3]).toBe(wordsUtils.LETTER_STATUS.abscent);
+    expect(statuses[4]).toBe(wordsUtils.LETTER_STATUS.abscent);
   });
 });

@@ -10,6 +10,7 @@ const MAX_LETTERS = 5;
 function MainGame() {
   const [words, setWords] = useState([""]);
   const [usedWords, setUsedWords] = useState([""]);
+  const [showBoardWords, setShowBoardWords] = useState([]);
 
   const correctWord = "adios";
   const lastWord = words[words.length - 1] || "";
@@ -35,6 +36,7 @@ function MainGame() {
     // TODO: check if words is correct, then game is over in win
 
     setUsedWords(words);
+    setShowBoardWords([...showBoardWords, true]);
 
     if (words.length >= MAX_WORDS) {
       // TODO: game is over in lose
@@ -52,6 +54,8 @@ function MainGame() {
           words={words}
           maxWords={MAX_WORDS}
           maxLetters={MAX_LETTERS}
+          showWords={showBoardWords}
+          correctWord={correctWord}
         ></Board>
       </div>
       <div className="keyboard-container">
