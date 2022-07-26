@@ -31,7 +31,7 @@
 }
 
 .rotate--90deg {
-  transform: rotateY(-90deg);
+  transform: rotateX(-90deg);
 }
 
 .board-cell--normal {
@@ -88,13 +88,13 @@
 
 @keyframes rotate {
   0% {
-    transform: rotateY(0deg);
+    transform: rotateX(0deg);
   }
   50% {
-    transform: rotateY(180deg);
+    transform: rotateX(180deg);
   }
   100% {
-    transform: rotateY(0deg);
+    transform: rotateX(0deg);
   }
 }
 
@@ -106,10 +106,10 @@
 
 @keyframes half-rotate-from-0 {
   from {
-    transform: rotateY(0deg);
+    transform: rotateX(0deg);
   }
   to {
-    transform: rotateY(90deg);
+    transform: rotateX(90deg);
   }
 }
 
@@ -122,9 +122,9 @@
 
 @keyframes half-rotate-from-90 {
   from {
-    transform: rotateY(-90deg);
+    transform: rotateX(-90deg);
   }
   100% {
-    transform: rotateY(0deg);
+    transform: rotateX(0deg);
   }
 }
