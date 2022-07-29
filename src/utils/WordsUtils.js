@@ -1,8 +1,27 @@
+import Words from "./WordsDict";
+
 const LETTER_STATUS = {
   correct: "correct",
   present: "present",
   abscent: "abscent",
 };
+
+function WordOfTheDay() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const hash = +today % Words.length;
+
+  return Words[hash];
+}
+
+function ExistWord(search) {
+  const result = Words.find(
+    (w) => w.localeCompare(search, "en", { sensitivity: "base" }) === 0
+  );
+  return result !== undefined;
+}
+
 
 /**
  * Returns an dictionary of letters with status for
@@ -75,28 +94,6 @@ function GetStatusWord(word, correctWord) {
   return statuses;
 }
 
-// /**
-//  *
-//  * @param {string} word
-//  * @param {string} correctWord
-//  */
-//  function GetStatusWord(word, correctWord) {
-//   const statuses = Array(correctWord.length).fill(null);
-//   for (let i = 0; i < word.length; i++) {
-//     const letter = word[i];
-
-//     if (letter === correctWord[i]) {
-//       statuses[i] = LETTER_STATUS.correct;
-//     } else if (correctWord.includes(letter)) {
-//       statuses[i] = LETTER_STATUS.present;
-//     } else {
-//       statuses[i] = LETTER_STATUS.abscent;
-//     }
-//   }
-
-//   return statuses;
-// }
-
 /**
  *
  * @param {Array<string>} words
@@ -115,4 +112,6 @@ export default {
   GetStatusKeys,
   GetStatusWord,
   GetStatusWordsArray,
+  WordOfTheDay,
+  ExistWord,
 };

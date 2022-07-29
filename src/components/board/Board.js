@@ -20,9 +20,13 @@ function Board({
 }) {
   const wordList = [...words, ...Array(maxWords - words.length).fill("")];
 
+  console.log("showWords", showWords);
+
   const wordStatuses = [];
   showWords.forEach((val, i) => {
-    wordStatuses.push(WordsUtils.GetStatusWord(words[i], correctWord));
+    if (words[i]) {
+      wordStatuses.push(WordsUtils.GetStatusWord(words[i], correctWord));
+    }
   });
 
   return (
